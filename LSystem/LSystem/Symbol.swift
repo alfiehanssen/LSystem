@@ -8,13 +8,16 @@
 
 import Foundation
 
-class Symbol: CustomStringConvertible
+public class Symbol: CustomStringConvertible
 {
-    var description: String
+    public init()
     {
-        assertionFailure("Subclasses must implement description.")
         
-        return ""
+    }
+    
+    public var description: String
+    {
+        return String(self.dynamicType)
     }
 }
 

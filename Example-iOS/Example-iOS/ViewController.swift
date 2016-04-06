@@ -15,47 +15,62 @@ class ViewController: UIViewController
     {
         super.viewDidLoad()
     
-        let axiom = Circle()
+        let x = X()
+        let axiom = [x]
         
-        let production = Production(axiom: [axiom])
+        let production = Production(axiom: axiom)
         
-        production.register(symbolType: Circle.self) { (symbol) -> [Symbol] in
+        production.register(symbolType: X.self) { (symbol) -> [Symbol] in
             
-            let circle = Circle()
-            let square = Square()
+            let x = X()
+            let f = F()
+            let minus = Minus()
+            let plus = Plus()
+            let left = Left()
+            let right = Right()
             
-            return [square, circle]
+            return [f, minus, left, left, x, right, plus, x, right, plus, f, left, plus, f, x, right, minus, x]
         }
         
-        production.register(symbolType: Square.self) { (symbol) -> [Symbol] in
+        production.register(symbolType: F.self) { (symbol) -> [Symbol] in
             
-            let circle = Circle()
+            let f = F()
             
-            return [circle, circle]
+            return [f, f]
         }
         
-        production.expand(iterations: 2)
+        production.expand(iterations: 1)
         
-        production.printSymbols()
+        print(production.symbols)
     }
     
-    class Circle: Symbol
+    class X: Symbol
     {
-        var diameter = 10
-        
-        override var description: String
-        {
-            return String(self.dynamicType)
-        }
-    }
-    
-    class Square: Symbol
-    {
-        var edge = 10
 
-        override var description: String
-        {
-            return String(self.dynamicType)
-        }
+    }
+    
+    class F: Symbol
+    {
+
+    }
+    
+    class Minus: Symbol
+    {
+
+    }
+    
+    class Plus: Symbol
+    {
+
+    }
+    
+    class Left: Symbol
+    {
+
+    }
+    
+    class Right: Symbol
+    {
+
     }
 }

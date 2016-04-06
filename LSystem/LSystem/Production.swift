@@ -8,27 +8,27 @@
 
 import Foundation
 
-class Production
+public class Production
 {
-    let axiom: [Symbol]
+    public let axiom: [Symbol]
     
-    private(set) var symbols: [Symbol]
-    private(set) var transforms: [String: Transform]
+    public private(set) var symbols: [Symbol]
+    public private(set) var transforms: [String: Transform]
     
-    init(axiom: [Symbol])
+    public init(axiom: [Symbol])
     {
         self.axiom = axiom
         self.symbols = axiom
         self.transforms = [:]
     }
     
-    func register<T: Symbol>(symbolType symbolType: T.Type, transform: Transform)
+    public func register<T: Symbol>(symbolType symbolType: T.Type, transform: Transform)
     {
         let name = String(T)
         self.transforms[name] = transform
     }
     
-    func expand(iterations iterations: Int)
+    public func expand(iterations iterations: Int)
     {
         assert(iterations > 0, "Iterations must be greater than zero.")
         
@@ -42,7 +42,7 @@ class Production
         }
     }
     
-    func expand()
+    public func expand()
     {
         var newSymbols = [Symbol]()
         
@@ -61,10 +61,5 @@ class Production
         }
         
         self.symbols = newSymbols
-    }
-    
-    func printSymbols()
-    {
-        print(self.symbols)
     }
 }

@@ -8,4 +8,4 @@
 
 import Foundation
 
-typealias Transform = (symbol: Symbol) -> [Symbol]
+public typealias Transform = (symbol: Symbol) -> [Symbol]

@@ -10,6 +10,9 @@
 		50903B741CB575A300277FF9 /* LSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50903B691CB575A300277FF9 /* LSystem.framework */; };
 		50903B791CB575A300277FF9 /* LSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50903B781CB575A300277FF9 /* LSystemTests.swift */; };
 		50903C0C1CB59E8500277FF9 /* LSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 50903C0B1CB59E8500277FF9 /* LSystem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50A0D47E1CB5AB4100F74213 /* Production.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D47B1CB5AB4100F74213 /* Production.swift */; };
+		50A0D47F1CB5AB4100F74213 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D47C1CB5AB4100F74213 /* Symbol.swift */; };
+		50A0D4801CB5AB4100F74213 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D47D1CB5AB4100F74213 /* Transform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		50903B781CB575A300277FF9 /* LSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSystemTests.swift; sourceTree = "<group>"; };
 		50903B7A1CB575A300277FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50903C0B1CB59E8500277FF9 /* LSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSystem.h; sourceTree = "<group>"; };
+		50A0D47B1CB5AB4100F74213 /* Production.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Production.swift; sourceTree = "<group>"; };
+		50A0D47C1CB5AB4100F74213 /* Symbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
+		50A0D47D1CB5AB4100F74213 /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,9 @@
 			isa = PBXGroup;
 			children = (
 				50903C0B1CB59E8500277FF9 /* LSystem.h */,
+				50A0D47B1CB5AB4100F74213 /* Production.swift */,
+				50A0D47C1CB5AB4100F74213 /* Symbol.swift */,
+				50A0D47D1CB5AB4100F74213 /* Transform.swift */,
 				50903B6E1CB575A300277FF9 /* Info.plist */,
 			);
 			path = LSystem;
@@ -194,6 +203,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50A0D47E1CB5AB4100F74213 /* Production.swift in Sources */,
+				50A0D4801CB5AB4100F74213 /* Transform.swift in Sources */,
+				50A0D47F1CB5AB4100F74213 /* Symbol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +393,7 @@
 				50903B7F1CB575A300277FF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		50903B801CB575A300277FF9 /* Build configuration list for PBXNativeTarget "LSystemTests" */ = {
 			isa = XCConfigurationList;
@@ -389,6 +402,7 @@
 				50903B821CB575A300277FF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

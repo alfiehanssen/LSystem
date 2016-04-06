@@ -14,10 +14,7 @@
 		50903B9A1CB575C200277FF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50903B981CB575C200277FF9 /* LaunchScreen.storyboard */; };
 		50903BA51CB575C200277FF9 /* Example_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50903BA41CB575C200277FF9 /* Example_iOSTests.swift */; };
 		50903BB01CB575C200277FF9 /* Example_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50903BAF1CB575C200277FF9 /* Example_iOSUITests.swift */; };
-		50903BCE1CB59A6B00277FF9 /* LSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50903BCD1CB59A6B00277FF9 /* LSystem.framework */; };
-		50903C041CB59E6000277FF9 /* Production.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50903C021CB59E6000277FF9 /* Production.swift */; };
-		50903C051CB59E6000277FF9 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50903C031CB59E6000277FF9 /* Symbol.swift */; };
-		50903C0E1CB5A2D300277FF9 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50903C0D1CB5A2D200277FF9 /* Transform.swift */; };
+		50A0D47A1CB5AAA100F74213 /* LSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A0D4791CB5AAA100F74213 /* LSystem.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +48,7 @@
 		50903BAB1CB575C200277FF9 /* Example-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Example-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50903BAF1CB575C200277FF9 /* Example_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example_iOSUITests.swift; sourceTree = "<group>"; };
 		50903BB11CB575C200277FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		50903BCD1CB59A6B00277FF9 /* LSystem.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LSystem.framework; path = "../../../Library/Developer/Xcode/DerivedData/LSystem-cblnzhfexxlfafatxmkccbsmwdsf/Build/Products/Debug-iphonesimulator/LSystem.framework"; sourceTree = "<group>"; };
-		50903C021CB59E6000277FF9 /* Production.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Production.swift; sourceTree = "<group>"; };
-		50903C031CB59E6000277FF9 /* Symbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
-		50903C0D1CB5A2D200277FF9 /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		50A0D4791CB5AAA100F74213 /* LSystem.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LSystem.framework; path = "../../../Library/Developer/Xcode/DerivedData/LSystem-cblnzhfexxlfafatxmkccbsmwdsf/Build/Products/Debug-iphonesimulator/LSystem.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50903BCE1CB59A6B00277FF9 /* LSystem.framework in Frameworks */,
+				50A0D47A1CB5AAA100F74213 /* LSystem.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,9 +103,6 @@
 			children = (
 				50903B8F1CB575C200277FF9 /* AppDelegate.swift */,
 				50903B911CB575C200277FF9 /* ViewController.swift */,
-				50903C021CB59E6000277FF9 /* Production.swift */,
-				50903C031CB59E6000277FF9 /* Symbol.swift */,
-				50903C0D1CB5A2D200277FF9 /* Transform.swift */,
 				50903B931CB575C200277FF9 /* Main.storyboard */,
 				50903B961CB575C200277FF9 /* Assets.xcassets */,
 				50903B981CB575C200277FF9 /* LaunchScreen.storyboard */,
@@ -141,7 +132,7 @@
 		50903BCF1CB59A7F00277FF9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				50903BCD1CB59A6B00277FF9 /* LSystem.framework */,
+				50A0D4791CB5AAA100F74213 /* LSystem.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -278,10 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50903B921CB575C200277FF9 /* ViewController.swift in Sources */,
-				50903C051CB59E6000277FF9 /* Symbol.swift in Sources */,
-				50903C0E1CB5A2D300277FF9 /* Transform.swift in Sources */,
 				50903B901CB575C200277FF9 /* AppDelegate.swift in Sources */,
-				50903C041CB59E6000277FF9 /* Production.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
