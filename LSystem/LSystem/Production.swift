@@ -13,13 +13,14 @@ public class Production
     public let axiom: [Symbol]
     
     public private(set) var symbols: [Symbol]
-    public private(set) var transforms: [String: Transform]
+    public private(set) var transforms = [String: Transform]()
     
     public init(axiom: [Symbol])
     {
+        assert(axiom.count > 0, "Axiom count must be greater than zero.")
+        
         self.axiom = axiom
         self.symbols = axiom
-        self.transforms = [:]
     }
     
     public func register<T: Symbol>(symbolType symbolType: T.Type, transform: Transform)
@@ -31,9 +32,10 @@ public class Production
     public func expand(iterations iterations: Int)
     {
         assert(iterations > 0, "Iterations must be greater than zero.")
+        assert(self.transforms.count > 0, "Transforms count must be greater than zero.")
         
         var iterations = iterations
-        
+
         while iterations > 0
         {
             self.expand()
