@@ -7,19 +7,55 @@
 //
 
 import UIKit
+import LSystem
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
+class ViewController: UIViewController
+{
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+        let axiom = Circle()
+        
+        let production = Production(axiom: [axiom])
+        
+        production.register(symbolType: Circle.self) { (symbol) -> [Symbol] in
+            
+            let circle = Circle()
+            let square = Square()
+            
+            return [square, circle]
+        }
+        
+        production.register(symbolType: Square.self) { (symbol) -> [Symbol] in
+            
+            let circle = Circle()
+            
+            return [circle, circle]
+        }
+        
+        production.expand(iterations: 2)
+        
+        production.printSymbols()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    class Circle: Symbol
+    {
+        var diameter = 10
+        
+        override var description: String
+        {
+            return String(self.dynamicType)
+        }
     }
+    
+    class Square: Symbol
+    {
+        var edge = 10
 
-
+        override var description: String
+        {
+            return String(self.dynamicType)
+        }
+    }
 }
-

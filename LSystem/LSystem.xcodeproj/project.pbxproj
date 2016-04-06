@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		50903B6D1CB575A300277FF9 /* LSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 50903B6C1CB575A300277FF9 /* LSystem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50903B741CB575A300277FF9 /* LSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50903B691CB575A300277FF9 /* LSystem.framework */; };
 		50903B791CB575A300277FF9 /* LSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50903B781CB575A300277FF9 /* LSystemTests.swift */; };
-		50903BCA1CB5764C00277FF9 /* LSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50903BC91CB5764C00277FF9 /* LSystem.swift */; };
+		50903C0C1CB59E8500277FF9 /* LSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 50903C0B1CB59E8500277FF9 /* LSystem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,12 +24,11 @@
 
 /* Begin PBXFileReference section */
 		50903B691CB575A300277FF9 /* LSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		50903B6C1CB575A300277FF9 /* LSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSystem.h; sourceTree = "<group>"; };
 		50903B6E1CB575A300277FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50903B731CB575A300277FF9 /* LSystemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LSystemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50903B781CB575A300277FF9 /* LSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSystemTests.swift; sourceTree = "<group>"; };
 		50903B7A1CB575A300277FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		50903BC91CB5764C00277FF9 /* LSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSystem.swift; sourceTree = "<group>"; };
+		50903C0B1CB59E8500277FF9 /* LSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSystem.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +71,7 @@
 		50903B6B1CB575A300277FF9 /* LSystem */ = {
 			isa = PBXGroup;
 			children = (
-				50903B6C1CB575A300277FF9 /* LSystem.h */,
-				50903BC91CB5764C00277FF9 /* LSystem.swift */,
+				50903C0B1CB59E8500277FF9 /* LSystem.h */,
 				50903B6E1CB575A300277FF9 /* Info.plist */,
 			);
 			path = LSystem;
@@ -96,7 +93,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50903B6D1CB575A300277FF9 /* LSystem.h in Headers */,
+				50903C0C1CB59E8500277FF9 /* LSystem.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +194,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50903BCA1CB5764C00277FF9 /* LSystem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
