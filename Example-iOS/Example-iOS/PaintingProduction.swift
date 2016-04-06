@@ -35,7 +35,7 @@ class PaintingProduction: Production
 
 class PathSymbol: Symbol
 {
-    var center: CGPoint?
+    var offset: CGPoint?
     var rotation: CGFloat?
     var fillColor: UIColor?
     var markDiameter: CGFloat?
