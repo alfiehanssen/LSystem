@@ -27,7 +27,9 @@ class PaintingProduction: Production
     
     private static func axiom(canvasSize canvasSize: CGSize) -> [Symbol]
     {
-        let center = canvasSize.centerPoint()
+        // TODO: This doesn't look like it's starting in the center, should be random anyway
+        
+        let center = canvasSize.randomPoint()
         let markWidth: CGFloat = 40
         let markLength: CGFloat = canvasSize.height / 3.0
         
@@ -42,23 +44,24 @@ class PaintingProduction: Production
             
             let symbol = symbol as! XSymbol
             
-            // TODO: keep center points within bounds, roughly
             // TODO: Vary location
             // TODO: add noise to mark paths
             // TODO: add dab symbol
+            // TODO: New rules, how to decide mark placement with respect to previous mark placements?
+            // TODO: keep center points within bounds, roughly
             
-            let oCenter = symbol.center.offsetBy(dx: 50, dy: 50)
+            let oCenter = self.canvasSize.randomPoint()
             let O = OSymbol(center: oCenter, markWidth: symbol.markWidth, diameter: 100)
             O.strokeColor = UIColor.purpleColor()
             O.alpha = CGFloat(drand48())
             O.blendMode = .Difference
             
-            let x1Center = symbol.center.offsetBy(dx: 50, dy: -50)
+            let x1Center = self.canvasSize.randomPoint()
             let X1 = XSymbol(center: x1Center, markWidth: symbol.markWidth, markLength: symbol.markLength)
             X1.strokeColor = UIColor.redColor()
             X1.alpha = CGFloat(drand48())
             
-            let x2Center = symbol.center.offsetBy(dx: -50, dy: -5)
+            let x2Center = self.canvasSize.randomPoint()
             let X2 = XSymbol(center: x2Center, markWidth: symbol.markWidth, markLength: symbol.markLength)
             X2.strokeColor = UIColor.grayColor()
             X2.alpha = CGFloat(drand48())

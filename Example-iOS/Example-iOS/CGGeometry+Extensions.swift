@@ -18,6 +18,16 @@ extension CGSize
         
         return CGPointMake(x, y)
     }
+    
+    func randomPoint() -> CGPoint
+    {
+        // TODO: does this need to be seeded?
+        
+        let x = CGFloat(arc4random_uniform(UInt32(self.width)))
+        let y = CGFloat(arc4random_uniform(UInt32(self.width)))
+
+        return CGPointMake(x, y)
+    }
 }
 
 extension CGPoint
