@@ -20,8 +20,8 @@ class ViewController: UIViewController
         let canvasSize = self.view.frame.size
         let production = PaintingProduction(canvasSize: canvasSize)
         
-        production.expand(iterations: 2)
+        production.expand(iterations: 3)
 
-        self.productionView.symbols = production.symbols as? [PathSymbol]
+        self.productionView.symbols = production.symbols as? [DrawableSymbol]
     }
 }

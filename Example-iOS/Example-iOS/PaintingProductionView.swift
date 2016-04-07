@@ -7,20 +7,16 @@
 //
 
 import UIKit
+import CoreGraphics
 
 class PaintingProductionView: UIView
 {
-    var symbols: [PathSymbol]?
+    var symbols: [DrawableSymbol]?
     {
         didSet
         {
             self.setNeedsDisplay()
         }
-    }
-    
-    override class func layerClass() -> AnyClass
-    {
-        return CAShapeLayer.self
     }
     
     override func drawRect(rect: CGRect)
@@ -31,10 +27,22 @@ class PaintingProductionView: UIView
         }
 
         print(symbols)
-        
+                
         for symbol in symbols
         {
+            let path = symbol.bezierPath
             
+            if let fillColor = symbol.fillColor
+            {
+                fillColor.setFill()
+                path.fillWithBlendMode(symbol.blendMode, alpha: symbol.alpha)
+            }
+            
+            if let strokeColor = symbol.strokeColor
+            {
+                strokeColor.setStroke()
+                path.strokeWithBlendMode(symbol.blendMode, alpha: symbol.alpha)
+            }
         }
     }
 }

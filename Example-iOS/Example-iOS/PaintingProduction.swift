@@ -27,10 +27,11 @@ class PaintingProduction: Production
     
     private static func axiom(canvasSize canvasSize: CGSize) -> [Symbol]
     {
-        let location = canvasSize.centerPoint()
-        let segmentLength = canvasSize.height / 3.0
+        let center = canvasSize.centerPoint()
+        let markWidth: CGFloat = 40
+        let markLength: CGFloat = canvasSize.height / 3.0
         
-        let symbol = XSymbol(location: location, segmentLength: segmentLength)
+        let symbol = XSymbol(center: center, markWidth: markWidth, markLength: markLength)
         
         return [symbol]
     }
@@ -41,14 +42,27 @@ class PaintingProduction: Production
             
             let symbol = symbol as! XSymbol
             
-            let oLocation = symbol.location.offsetBy(dx: 5, dy: 5)
-            let O = OSymbol(location: oLocation, diameter: symbol.segmentLength)
+            // TODO: keep center points within bounds, roughly
+            // TODO: Vary location
+            // TODO: add noise to mark paths
+            // TODO: add dab symbol
             
-            let x1Location = symbol.location.offsetBy(dx: 5, dy: -5)
-            let X1 = XSymbol(location: x1Location, segmentLength: symbol.segmentLength * 0.9)
+            let oCenter = symbol.center.offsetBy(dx: 50, dy: 50)
+            let O = OSymbol(center: oCenter, markWidth: symbol.markWidth, diameter: 100)
+            O.strokeColor = UIColor.purpleColor()
+            O.alpha = CGFloat(drand48())
+            O.blendMode = .Difference
             
-            let x2Location = symbol.location.offsetBy(dx: -5, dy: -5)
-            let X2 = XSymbol(location: x2Location, segmentLength: symbol.segmentLength * 1.1)
+            let x1Center = symbol.center.offsetBy(dx: 50, dy: -50)
+            let X1 = XSymbol(center: x1Center, markWidth: symbol.markWidth, markLength: symbol.markLength)
+            X1.strokeColor = UIColor.redColor()
+            X1.alpha = CGFloat(drand48())
+            
+            let x2Center = symbol.center.offsetBy(dx: -50, dy: -5)
+            let X2 = XSymbol(center: x2Center, markWidth: symbol.markWidth, markLength: symbol.markLength)
+            X2.strokeColor = UIColor.grayColor()
+            X2.alpha = CGFloat(drand48())
+            X2.blendMode = .HardLight
             
             return [O, X1, X2]
         }
@@ -56,81 +70,5 @@ class PaintingProduction: Production
         self.register(symbolType: OSymbol.self) { (symbol) -> [Symbol] in
             return [symbol]
         }
-    }
-}
-
-class XSymbol: PathSymbol
-{
-    let segmentLength: CGFloat
-    
-    required init(location: CGPoint, segmentLength: CGFloat)
-    {
-        assert(segmentLength > 0, "Segment length must be greater than zero.")
-        
-        self.segmentLength = segmentLength
-        
-        super.init(location: location)
-    }
-}
-
-class OSymbol: PathSymbol
-{
-    let diameter: CGFloat
-
-    required init(location: CGPoint, diameter: CGFloat)
-    {
-        assert(diameter > 0, "Diameter must be greater than zero.")
-        
-        self.diameter = diameter
-        
-        super.init(location: location)
-    }
-}
-
-protocol Drawable
-{
-    var location: CGPoint { get set }
-    
-}
-
-class PathSymbol: Symbol, Drawable
-{
-    var location: CGPoint
-    
-//    var rotation: CGFloat?
-//    var fillColor: UIColor?
-//    var markDiameter: CGFloat?
-//    var path: UIBezierPath?
-    
-    init(location: CGPoint)
-    {
-        self.location = location
-    }
-    
-    func path() -> UIBezierPath
-    {
-        return UIBezierPath()
-    }
-}
-
-extension CGSize
-{
-    func centerPoint() -> CGPoint
-    {
-        let x = self.width / 2.0
-        let y = self.height / 2.0
-        
-        return CGPointMake(x, y)
-    }
-}
-
-extension CGPoint
-{
-    func offsetBy(dx dx: CGFloat, dy: CGFloat) -> CGPoint
-    {
-        let x = self.x + dx
-        let y = self.y + dy
-        
-        return CGPointMake(x, y)
     }
 }
