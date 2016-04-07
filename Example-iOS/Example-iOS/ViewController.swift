@@ -11,14 +11,17 @@ import LSystem
 
 class ViewController: UIViewController
 {
+    @IBOutlet weak var productionView: PaintingProductionView!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
     
-        let production = PlantProduction()
+        let canvasSize = self.view.frame.size
+        let production = PaintingProduction(canvasSize: canvasSize)
         
         production.expand(iterations: 2)
-        
-        print(production.symbols)
-    }    
+
+        self.productionView.symbols = production.symbols as? [PathSymbol]
+    }
 }

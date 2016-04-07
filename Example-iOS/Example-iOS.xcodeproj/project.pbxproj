@@ -17,6 +17,7 @@
 		50A0D47A1CB5AAA100F74213 /* LSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A0D4791CB5AAA100F74213 /* LSystem.framework */; };
 		50A0D4821CB5AD6900F74213 /* PlantProduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4811CB5AD6900F74213 /* PlantProduction.swift */; };
 		50A0D4841CB5B4B500F74213 /* PaintingProduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4831CB5B4B500F74213 /* PaintingProduction.swift */; };
+		50A0D4861CB6E13700F74213 /* PaintingProductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4851CB6E13700F74213 /* PaintingProductionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		50A0D4791CB5AAA100F74213 /* LSystem.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LSystem.framework; path = "../../../Library/Developer/Xcode/DerivedData/LSystem-cblnzhfexxlfafatxmkccbsmwdsf/Build/Products/Debug-iphonesimulator/LSystem.framework"; sourceTree = "<group>"; };
 		50A0D4811CB5AD6900F74213 /* PlantProduction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantProduction.swift; sourceTree = "<group>"; };
 		50A0D4831CB5B4B500F74213 /* PaintingProduction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingProduction.swift; sourceTree = "<group>"; };
+		50A0D4851CB6E13700F74213 /* PaintingProductionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingProductionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				50903B8F1CB575C200277FF9 /* AppDelegate.swift */,
 				50903B911CB575C200277FF9 /* ViewController.swift */,
+				50A0D4851CB6E13700F74213 /* PaintingProductionView.swift */,
 				50A0D4811CB5AD6900F74213 /* PlantProduction.swift */,
 				50A0D4831CB5B4B500F74213 /* PaintingProduction.swift */,
 				50903B931CB575C200277FF9 /* Main.storyboard */,
@@ -278,6 +281,7 @@
 				50903B921CB575C200277FF9 /* ViewController.swift in Sources */,
 				50A0D4821CB5AD6900F74213 /* PlantProduction.swift in Sources */,
 				50903B901CB575C200277FF9 /* AppDelegate.swift in Sources */,
+				50A0D4861CB6E13700F74213 /* PaintingProductionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

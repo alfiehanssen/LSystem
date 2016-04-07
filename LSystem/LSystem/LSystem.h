@@ -6,7 +6,7 @@
 //  Copyright © 2016 Alfie Hanssen. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 //! Project version number for LSystem.
 FOUNDATION_EXPORT double LSystemVersionNumber;
