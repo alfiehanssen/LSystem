@@ -17,6 +17,7 @@ class ControlsViewController: UIViewController
     @IBOutlet weak var productionView: PaintingProductionView!
 
     var production: PaintingProduction?
+    var imageURLs = [NSURL]()
     
     private var brushDiameter: Int
     {
@@ -33,7 +34,7 @@ class ControlsViewController: UIViewController
         super.viewDidLoad()
 
         self.setupSliders()
-        self.setupTapGesture()
+        self.setupGestures()
     }
     
     // MARK: Setup
@@ -47,10 +48,17 @@ class ControlsViewController: UIViewController
         self.didChangeBrushDiameter(self.brushDiameterSlider)
     }
     
-    private func setupTapGesture()
+    private func setupGestures()
     {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ControlsViewController.didTapPainting))
-        self.productionView.addGestureRecognizer(tapGestureRecognizer)
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(ControlsViewController.didTapShare))
+        singleTap.numberOfTapsRequired = 2
+        singleTap.numberOfTouchesRequired = 1
+        self.productionView.addGestureRecognizer(singleTap)
+
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(ControlsViewController.didTapPlay))
+        doubleTap.numberOfTapsRequired = 2
+        doubleTap.numberOfTouchesRequired = 1
+        self.productionView.addGestureRecognizer(doubleTap)
     }
     
     private func setupProduction()
@@ -100,7 +108,7 @@ class ControlsViewController: UIViewController
         }
     }
     
-    func didTapPainting(sender: UITapGestureRecognizer)
+    func didTapShare(sender: UITapGestureRecognizer)
     {
         let view = self.productionView
         let scale = UIScreen.mainScreen().scale
@@ -112,6 +120,48 @@ class ControlsViewController: UIViewController
 
         let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: [])
         self.presentViewController(activityViewController, animated: true, completion: nil)
+    }
+
+    func didTapPlay(sender: UITapGestureRecognizer)
+    {
+        let image = self.getCurrentImage()
+        
+        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: [])
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+    }
+    
+    private func saveCurrentImage()
+    {
+        let image = self.getCurrentImage()
+        guard let data = UIImagePNGRepresentation(image) else
+        {
+            assertionFailure("Unable to get data from image.")
+            
+            return
+        }
+        
+        let URL = 
+        do
+        {
+            try data.writeToURL(URL, atomically: true)
+        }
+        catch let error as NSError
+        {
+            
+        }
+    }
+    
+    private func getCurrentImage() -> UIImage
+    {
+        let view = self.productionView
+        let scale = UIScreen.mainScreen().scale
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, scale)
+        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: false)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return image
     }
 
     /*
