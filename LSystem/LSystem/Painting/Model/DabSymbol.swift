@@ -33,6 +33,8 @@ public class DabSymbol: DrawableSymbol
     
     init(center: CGPoint, brushDiameter: CGFloat, markLength: CGFloat)
     {
+        assert(markLength > 0, "Mark length must be greater than 0.")
+        
         self.markLength = markLength
         
         super.init(center: center, brushDiameter: brushDiameter)

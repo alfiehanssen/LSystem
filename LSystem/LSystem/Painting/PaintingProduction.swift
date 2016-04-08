@@ -61,12 +61,6 @@ public class PaintingProduction: Production
             center = self.canvasSize.randomPoint()
             index = Int.random(upperBound: self.colorPalette.count)
             
-            let X = XSymbol(center: center, brushDiameter: self.brushDiameter, markLength: symbol.markLength)
-            X.strokeColor = self.colorPalette[index]
-            
-            center = self.canvasSize.randomPoint()
-            index = Int.random(upperBound: self.colorPalette.count)
-            
             let squiggle = SquiggleSymbol(center: center, brushDiameter: self.brushDiameter, markLength: symbol.markLength)
             squiggle.strokeColor = self.colorPalette[index]
             squiggle.noise = 0.5
@@ -80,7 +74,7 @@ public class PaintingProduction: Production
             var symbols = [Symbol]()
             
             let random = CGFloat.randomZeroToOne()
-            if random < 0.5
+            if random < 0.75
             {
                 let index = Int.random(upperBound: self.colorPalette.count)
                 let color = self.colorPalette[index]
@@ -94,10 +88,8 @@ public class PaintingProduction: Production
                 
                 symbols.append(dabField)
             }
-            else
-            {
-                symbols.append(symbol)
-            }
+
+            symbols.append(symbol)
             
             return symbols
         }

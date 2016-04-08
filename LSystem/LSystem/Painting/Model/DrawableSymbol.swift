@@ -31,6 +31,8 @@ public class DrawableSymbol: Symbol
     
     init(center: CGPoint, brushDiameter: CGFloat)
     {
+        assert(brushDiameter > 0, "Brush diameter must be greater than 0.")
+
         self.center = center
         self.brushDiameter = brushDiameter
     }

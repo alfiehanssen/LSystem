@@ -13,9 +13,10 @@
 		50903B9A1CB575C200277FF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50903B981CB575C200277FF9 /* LaunchScreen.storyboard */; };
 		50903BA51CB575C200277FF9 /* Example_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50903BA41CB575C200277FF9 /* Example_iOSTests.swift */; };
 		50903BB01CB575C200277FF9 /* Example_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50903BAF1CB575C200277FF9 /* Example_iOSUITests.swift */; };
-		50A0D47A1CB5AAA100F74213 /* LSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A0D4791CB5AAA100F74213 /* LSystem.framework */; };
 		50A0D4821CB5AD6900F74213 /* PlantProduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4811CB5AD6900F74213 /* PlantProduction.swift */; };
 		50A0D49D1CB8068900F74213 /* ControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D49B1CB8068900F74213 /* ControlsViewController.swift */; };
+		50A0D4C31CB83BC400F74213 /* LSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A0D4C21CB83BC400F74213 /* LSystem.framework */; };
+		50A0D4C41CB83BC400F74213 /* LSystem.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50A0D4C21CB83BC400F74213 /* LSystem.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		50A0D4C51CB83BC400F74213 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				50A0D4C41CB83BC400F74213 /* LSystem.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		50903B8C1CB575C200277FF9 /* Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50903B8F1CB575C200277FF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +66,7 @@
 		50A0D4791CB5AAA100F74213 /* LSystem.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LSystem.framework; path = "../../../Library/Developer/Xcode/DerivedData/LSystem-cblnzhfexxlfafatxmkccbsmwdsf/Build/Products/Debug-iphonesimulator/LSystem.framework"; sourceTree = "<group>"; };
 		50A0D4811CB5AD6900F74213 /* PlantProduction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantProduction.swift; sourceTree = "<group>"; };
 		50A0D49B1CB8068900F74213 /* ControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsViewController.swift; sourceTree = "<group>"; };
+		50A0D4C21CB83BC400F74213 /* LSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = LSystem.framework; path = "/Users/hanssena/Library/Developer/Xcode/DerivedData/LSystem-cblnzhfexxlfafatxmkccbsmwdsf/Build/Products/Debug-iphoneos/LSystem.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50A0D47A1CB5AAA100F74213 /* LSystem.framework in Frameworks */,
+				50A0D4C31CB83BC400F74213 /* LSystem.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +98,7 @@
 		50903B831CB575C200277FF9 = {
 			isa = PBXGroup;
 			children = (
+				50A0D4C21CB83BC400F74213 /* LSystem.framework */,
 				50903B8E1CB575C200277FF9 /* Example-iOS */,
 				50903BA31CB575C200277FF9 /* Example-iOSTests */,
 				50903BAE1CB575C200277FF9 /* Example-iOSUITests */,
@@ -150,6 +167,7 @@
 				50903B881CB575C200277FF9 /* Sources */,
 				50903B891CB575C200277FF9 /* Frameworks */,
 				50903B8A1CB575C200277FF9 /* Resources */,
+				50A0D4C51CB83BC400F74213 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -418,7 +436,7 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Example-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alfiehanssen.Example-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vimeo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -430,7 +448,7 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Example-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alfiehanssen.Example-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vimeo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

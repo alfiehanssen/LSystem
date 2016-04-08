@@ -30,6 +30,8 @@ public class OSymbol: DrawableSymbol
     
     init(center: CGPoint, brushDiameter: CGFloat, diameter: CGFloat)
     {
+        assert(diameter > 0, "Diameter must be greater than 0.")
+
         self.diameter = diameter
         
         super.init(center: center, brushDiameter: brushDiameter)
