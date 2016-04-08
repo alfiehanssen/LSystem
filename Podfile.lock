@@ -1,0 +1,13 @@
+PODS:
+  - GIFSet (1.0.0)
+  - VIMVideoPlayer (6.0.1)
+
+DEPENDENCIES:
+  - GIFSet (= 1.0.0)
+  - VIMVideoPlayer (= 6.0.1)
+
+SPEC CHECKSUMS:
+  GIFSet: 996765e49920071f72e3f9db60485da2c690913f
+  VIMVideoPlayer: f4ed0a9986294ec3684a2e6bdc738e30051ef4ef
+
+COCOAPODS: 0.39.0

@@ -8,8 +8,9 @@
 
 import UIKit
 import LSystem
+import GIFSet
 
-class ControlsViewController: UIViewController
+class ControlsViewController: UIViewController, Dismissable
 {
     @IBOutlet weak var brushDiameterLabel: UILabel!
     @IBOutlet weak var brushDiameterSlider: UISlider!
@@ -18,6 +19,7 @@ class ControlsViewController: UIViewController
 
     var production: PaintingProduction?
     var imageURLs = [NSURL]()
+    let operationQueue = NSOperationQueue()
     
     private var brushDiameter: Int
     {
@@ -34,7 +36,7 @@ class ControlsViewController: UIViewController
         super.viewDidLoad()
 
         self.setupSliders()
-        self.setupGestures()
+        self.setupGesture()
     }
     
     // MARK: Setup
@@ -48,17 +50,10 @@ class ControlsViewController: UIViewController
         self.didChangeBrushDiameter(self.brushDiameterSlider)
     }
     
-    private func setupGestures()
+    private func setupGesture()
     {
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(ControlsViewController.didTapShare))
-        singleTap.numberOfTapsRequired = 2
-        singleTap.numberOfTouchesRequired = 1
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(ControlsViewController.didTapPainting))
         self.productionView.addGestureRecognizer(singleTap)
-
-        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(ControlsViewController.didTapPlay))
-        doubleTap.numberOfTapsRequired = 2
-        doubleTap.numberOfTouchesRequired = 1
-        self.productionView.addGestureRecognizer(doubleTap)
     }
     
     private func setupProduction()
@@ -79,6 +74,8 @@ class ControlsViewController: UIViewController
 
     @IBAction func didTapClear(sender: UIButton)
     {
+        self.imageURLs.removeAll()
+        
         self.production?.reset()
         self.production = nil
         
@@ -101,34 +98,40 @@ class ControlsViewController: UIViewController
             production.expand()
         
             dispatch_async(dispatch_get_main_queue(), { 
+        
                 self.productionView.symbols = production.symbols as? [DrawableSymbol]
         
+                self.saveCurrentImage()
+                
                 self.view.userInteractionEnabled = true
             })
         }
     }
     
-    func didTapShare(sender: UITapGestureRecognizer)
+    // MARK: Gestures
+    
+    func didTapPainting(sender: UITapGestureRecognizer)
     {
-        let view = self.productionView
-        let scale = UIScreen.mainScreen().scale
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, scale)
-        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: false)
-        
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        let outputURL = NSURL.uniqueMp4URL()
+        let operation = ImageConcatenationOperation(imageURLs: self.imageURLs, duration: 3, outputURL: outputURL)
+        operation!.completionBlock = {
+            
+            dispatch_async(dispatch_get_main_queue(), { 
 
-        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: [])
-        self.presentViewController(activityViewController, animated: true, completion: nil)
-    }
+                let viewController = VideoViewController(nibName: "VideoViewController", bundle: NSBundle.mainBundle())
+                viewController.videoURL = outputURL
+                viewController.imageURL = self.imageURLs.last
+                viewController.delegate = self
+                
+                self.presentViewController(viewController, animated: true, completion: nil)
 
-    func didTapPlay(sender: UITapGestureRecognizer)
-    {
-        let image = self.getCurrentImage()
+            })
+        }
         
-        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: [])
-        self.presentViewController(activityViewController, animated: true, completion: nil)
+        self.operationQueue.addOperation(operation!)
     }
+    
+    // MARK: Private API
     
     private func saveCurrentImage()
     {
@@ -140,15 +143,16 @@ class ControlsViewController: UIViewController
             return
         }
         
-        let URL = 
-        do
+        let URL = NSURL.uniqueImageURL()
+        let success = data.writeToFile(URL.absoluteString, atomically: true)
+        if !success
         {
-            try data.writeToURL(URL, atomically: true)
-        }
-        catch let error as NSError
-        {
+            assertionFailure("Unable to write image data to disk.")
             
+            return
         }
+        
+        self.imageURLs.append(URL)
     }
     
     private func getCurrentImage() -> UIImage
@@ -163,15 +167,11 @@ class ControlsViewController: UIViewController
 
         return image
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    // MARK: Dismissable
+    
+    func requestDismissal(viewController viewController: UIViewController, animated: Bool)
+    {
+        viewController.dismissViewControllerAnimated(true, completion: nil)
     }
-    */
-
 }
