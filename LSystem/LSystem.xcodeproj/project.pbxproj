@@ -86,8 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				50903C0B1CB59E8500277FF9 /* LSystem.h */,
-				50A0D48B1CB8045700F74213 /* Core */,
 				50A0D48F1CB8045700F74213 /* Painting */,
+				50A0D48B1CB8045700F74213 /* Core */,
 				50903B6E1CB575A300277FF9 /* Info.plist */,
 			);
 			path = LSystem;
