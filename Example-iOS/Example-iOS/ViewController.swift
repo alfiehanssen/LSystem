@@ -18,9 +18,11 @@ class ViewController: UIViewController
         super.viewDidLoad()
     
         let canvasSize = self.view.frame.size
-        let production = PaintingProduction(canvasSize: canvasSize)
+        let brushDiameter: CGFloat = 60
+        let colorPalette = [UIColor.redColor(), UIColor.blueColor(), UIColor.yellowColor()]
+        let production = PaintingProduction(canvasSize: canvasSize, brushDiameter: brushDiameter, colorPalette: colorPalette)
         
-        production.expand(iterations: 3)
+        production.expand(iterations: 10)
 
         self.productionView.symbols = production.symbols as? [DrawableSymbol]
     }

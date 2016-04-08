@@ -9,9 +9,9 @@
 import UIKit
 import CoreGraphics
 
-class PaintingProductionView: UIView
+public class PaintingProductionView: UIView
 {
-    var symbols: [DrawableSymbol]?
+    public var symbols: [DrawableSymbol]?
     {
         didSet
         {
@@ -19,7 +19,7 @@ class PaintingProductionView: UIView
         }
     }
     
-    override func drawRect(rect: CGRect)
+    public override func drawRect(rect: CGRect)
     {
         guard let symbols = self.symbols else
         {
@@ -32,6 +32,10 @@ class PaintingProductionView: UIView
         {
             let path = symbol.bezierPath
             
+            let radians = symbol.rotation.radians()
+            let transform = CGAffineTransformMakeRotation(radians);
+            path.applyTransform(transform)
+
             if let fillColor = symbol.fillColor
             {
                 fillColor.setFill()

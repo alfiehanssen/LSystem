@@ -10,9 +10,13 @@
 		50903B741CB575A300277FF9 /* LSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50903B691CB575A300277FF9 /* LSystem.framework */; };
 		50903B791CB575A300277FF9 /* LSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50903B781CB575A300277FF9 /* LSystemTests.swift */; };
 		50903C0C1CB59E8500277FF9 /* LSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 50903C0B1CB59E8500277FF9 /* LSystem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		50A0D47E1CB5AB4100F74213 /* Production.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D47B1CB5AB4100F74213 /* Production.swift */; };
-		50A0D47F1CB5AB4100F74213 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D47C1CB5AB4100F74213 /* Symbol.swift */; };
-		50A0D4801CB5AB4100F74213 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D47D1CB5AB4100F74213 /* Transform.swift */; };
+		50A0D4941CB8045700F74213 /* Production.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D48C1CB8045700F74213 /* Production.swift */; };
+		50A0D4951CB8045700F74213 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D48D1CB8045700F74213 /* Symbol.swift */; };
+		50A0D4961CB8045700F74213 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D48E1CB8045700F74213 /* Transform.swift */; };
+		50A0D4971CB8045700F74213 /* CGGeometry+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4901CB8045700F74213 /* CGGeometry+Extensions.swift */; };
+		50A0D4981CB8045700F74213 /* PaintingProduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4911CB8045700F74213 /* PaintingProduction.swift */; };
+		50A0D4991CB8045700F74213 /* PaintingProductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4921CB8045700F74213 /* PaintingProductionView.swift */; };
+		50A0D49A1CB8045700F74213 /* PaintingSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4931CB8045700F74213 /* PaintingSymbols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,9 +36,13 @@
 		50903B781CB575A300277FF9 /* LSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSystemTests.swift; sourceTree = "<group>"; };
 		50903B7A1CB575A300277FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50903C0B1CB59E8500277FF9 /* LSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSystem.h; sourceTree = "<group>"; };
-		50A0D47B1CB5AB4100F74213 /* Production.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Production.swift; sourceTree = "<group>"; };
-		50A0D47C1CB5AB4100F74213 /* Symbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
-		50A0D47D1CB5AB4100F74213 /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		50A0D48C1CB8045700F74213 /* Production.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Production.swift; sourceTree = "<group>"; };
+		50A0D48D1CB8045700F74213 /* Symbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
+		50A0D48E1CB8045700F74213 /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		50A0D4901CB8045700F74213 /* CGGeometry+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGGeometry+Extensions.swift"; sourceTree = "<group>"; };
+		50A0D4911CB8045700F74213 /* PaintingProduction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingProduction.swift; sourceTree = "<group>"; };
+		50A0D4921CB8045700F74213 /* PaintingProductionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingProductionView.swift; sourceTree = "<group>"; };
+		50A0D4931CB8045700F74213 /* PaintingSymbols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingSymbols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				50903C0B1CB59E8500277FF9 /* LSystem.h */,
-				50A0D47B1CB5AB4100F74213 /* Production.swift */,
-				50A0D47C1CB5AB4100F74213 /* Symbol.swift */,
-				50A0D47D1CB5AB4100F74213 /* Transform.swift */,
+				50A0D48B1CB8045700F74213 /* Core */,
+				50A0D48F1CB8045700F74213 /* Painting */,
 				50903B6E1CB575A300277FF9 /* Info.plist */,
 			);
 			path = LSystem;
@@ -93,6 +100,27 @@
 				50903B7A1CB575A300277FF9 /* Info.plist */,
 			);
 			path = LSystemTests;
+			sourceTree = "<group>";
+		};
+		50A0D48B1CB8045700F74213 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				50A0D48C1CB8045700F74213 /* Production.swift */,
+				50A0D48D1CB8045700F74213 /* Symbol.swift */,
+				50A0D48E1CB8045700F74213 /* Transform.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		50A0D48F1CB8045700F74213 /* Painting */ = {
+			isa = PBXGroup;
+			children = (
+				50A0D4901CB8045700F74213 /* CGGeometry+Extensions.swift */,
+				50A0D4911CB8045700F74213 /* PaintingProduction.swift */,
+				50A0D4921CB8045700F74213 /* PaintingProductionView.swift */,
+				50A0D4931CB8045700F74213 /* PaintingSymbols.swift */,
+			);
+			path = Painting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,9 +231,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50A0D47E1CB5AB4100F74213 /* Production.swift in Sources */,
-				50A0D4801CB5AB4100F74213 /* Transform.swift in Sources */,
-				50A0D47F1CB5AB4100F74213 /* Symbol.swift in Sources */,
+				50A0D4941CB8045700F74213 /* Production.swift in Sources */,
+				50A0D4961CB8045700F74213 /* Transform.swift in Sources */,
+				50A0D4951CB8045700F74213 /* Symbol.swift in Sources */,
+				50A0D4981CB8045700F74213 /* PaintingProduction.swift in Sources */,
+				50A0D49A1CB8045700F74213 /* PaintingSymbols.swift in Sources */,
+				50A0D4971CB8045700F74213 /* CGGeometry+Extensions.swift in Sources */,
+				50A0D4991CB8045700F74213 /* PaintingProductionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ import Foundation
 import LSystem
 import UIKit
 
-class XSymbol: DrawableSymbol
+public class XSymbol: DrawableSymbol
 {
     let markLength: CGFloat
     
@@ -47,7 +47,7 @@ class XSymbol: DrawableSymbol
     }
 }
 
-class OSymbol: DrawableSymbol
+public class OSymbol: DrawableSymbol
 {
     let diameter: CGFloat
 
@@ -74,13 +74,45 @@ class OSymbol: DrawableSymbol
     }
 }
 
-class DrawableSymbol: Symbol
+public class DabSymbol: DrawableSymbol
+{
+    let markLength: CGFloat
+    
+    override var bezierPath: UIBezierPath
+    {
+        let path = UIBezierPath()
+        
+        let segment = (self.markLength - self.markWidth) / 2.0
+
+        var point = CGPoint(x: self.center.x, y: self.center.y - segment)
+        path.moveToPoint(point)
+        
+        point = CGPoint(x: point.x, y: point.y + 2 * segment)
+        path.addLineToPoint(point)
+        
+        path.lineWidth = self.markWidth
+        path.lineCapStyle = .Round
+        
+        return path
+    }
+    
+    init(center: CGPoint, markWidth: CGFloat, markLength: CGFloat)
+    {
+        self.markLength = markLength
+        
+        super.init(center: center, markWidth: markWidth)
+    }
+}
+
+public class DrawableSymbol: Symbol
 {
     let center: CGPoint
     let markWidth: CGFloat
     
-    var alpha: CGFloat = 1.0
+    var noise: CGFloat = 0
+    var alpha: CGFloat = 1
     var blendMode: CGBlendMode = .Normal
+    var rotation: CGFloat = 0
     
     var fillColor: UIColor?
     var strokeColor: UIColor?

@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-extension CGSize
+public extension CGSize
 {
     func centerPoint() -> CGPoint
     {
@@ -24,13 +24,13 @@ extension CGSize
         // TODO: does this need to be seeded?
         
         let x = CGFloat(arc4random_uniform(UInt32(self.width)))
-        let y = CGFloat(arc4random_uniform(UInt32(self.width)))
+        let y = CGFloat(arc4random_uniform(UInt32(self.height)))
 
         return CGPointMake(x, y)
     }
 }
 
-extension CGPoint
+public extension CGPoint
 {
     func offsetBy(dx dx: CGFloat, dy: CGFloat) -> CGPoint
     {
@@ -41,10 +41,30 @@ extension CGPoint
     }
 }
 
-extension CGFloat
+public extension CGFloat
 {
     func radians() -> CGFloat
     {
         return self * CGFloat(M_PI) / 180.0
+    }
+    
+    static func randomZeroToOne() -> CGFloat
+    {
+        return CGFloat(drand48())
+    }
+}
+
+public extension Int
+{
+    static func random(upperBound upperBound: Int) -> Int
+    {
+        return Int.random(lowerBound: 0, upperBound: upperBound)
+    }
+
+    static func random(lowerBound lowerBound: Int, upperBound: Int) -> Int
+    {
+        let size = UInt32(upperBound)
+        
+        return Int(arc4random_uniform(size)) + lowerBound
     }
 }
