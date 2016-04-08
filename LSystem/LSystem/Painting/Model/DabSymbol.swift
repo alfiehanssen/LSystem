@@ -17,7 +17,7 @@ public class DabSymbol: DrawableSymbol
     {
         let path = UIBezierPath()
         
-        let segment = (self.markLength - self.markWidth) / 2.0
+        let segment = (self.markLength - self.brushDiameter) / 2.0
         
         var point = CGPoint(x: self.center.x, y: self.center.y - segment)
         path.moveToPoint(point)
@@ -25,16 +25,16 @@ public class DabSymbol: DrawableSymbol
         point = CGPoint(x: point.x, y: point.y + 2 * segment)
         path.addLineToPoint(point)
         
-        path.lineWidth = self.markWidth
+        path.lineWidth = self.brushDiameter
         path.lineCapStyle = .Round
         
         return path
     }
     
-    init(center: CGPoint, markWidth: CGFloat, markLength: CGFloat)
+    init(center: CGPoint, brushDiameter: CGFloat, markLength: CGFloat)
     {
         self.markLength = markLength
         
-        super.init(center: center, markWidth: markWidth)
+        super.init(center: center, brushDiameter: brushDiameter)
     }
 }

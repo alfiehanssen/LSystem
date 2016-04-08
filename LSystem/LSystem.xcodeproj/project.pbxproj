@@ -21,6 +21,7 @@
 		50A0D4B71CB81B5000F74213 /* SquiggleSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4AF1CB81B5000F74213 /* SquiggleSymbol.swift */; };
 		50A0D4B81CB81B5000F74213 /* XSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4B01CB81B5000F74213 /* XSymbol.swift */; };
 		50A0D4B91CB81B5000F74213 /* PaintingProductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4B21CB81B5000F74213 /* PaintingProductionView.swift */; };
+		50A0D4BB1CB831E000F74213 /* DabFieldSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4BA1CB831E000F74213 /* DabFieldSymbol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		50A0D4AF1CB81B5000F74213 /* SquiggleSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquiggleSymbol.swift; sourceTree = "<group>"; };
 		50A0D4B01CB81B5000F74213 /* XSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XSymbol.swift; sourceTree = "<group>"; };
 		50A0D4B21CB81B5000F74213 /* PaintingProductionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingProductionView.swift; sourceTree = "<group>"; };
+		50A0D4BA1CB831E000F74213 /* DabFieldSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DabFieldSymbol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				50A0D4AF1CB81B5000F74213 /* SquiggleSymbol.swift */,
+				50A0D4BA1CB831E000F74213 /* DabFieldSymbol.swift */,
 				50A0D4AC1CB81B5000F74213 /* DabSymbol.swift */,
 				50A0D4AE1CB81B5000F74213 /* OSymbol.swift */,
 				50A0D4B01CB81B5000F74213 /* XSymbol.swift */,
@@ -275,6 +278,7 @@
 				50A0D4951CB8045700F74213 /* Symbol.swift in Sources */,
 				50A0D4981CB8045700F74213 /* PaintingProduction.swift in Sources */,
 				50A0D4B61CB81B5000F74213 /* OSymbol.swift in Sources */,
+				50A0D4BB1CB831E000F74213 /* DabFieldSymbol.swift in Sources */,
 				50A0D4B91CB81B5000F74213 /* PaintingProductionView.swift in Sources */,
 				50A0D4B31CB81B5000F74213 /* CGGeometry+Extensions.swift in Sources */,
 				50A0D4B41CB81B5000F74213 /* DabSymbol.swift in Sources */,

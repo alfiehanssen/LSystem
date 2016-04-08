@@ -36,10 +36,10 @@ public class PaintingProduction: Production
     private static func axiom(canvasSize canvasSize: CGSize, brushDiameter: CGFloat, colorPalette: [UIColor]) -> [Symbol]
     {
         let center = canvasSize.randomPoint()
-        let markWidth = brushDiameter
+        let brushDiameter = brushDiameter
         let markLength: CGFloat = canvasSize.height / 3.0
         
-        let symbol = XSymbol(center: center, markWidth: markWidth, markLength: markLength)
+        let symbol = XSymbol(center: center, brushDiameter: brushDiameter, markLength: markLength)
         symbol.strokeColor = colorPalette.first
         
         return [symbol]
@@ -55,70 +55,62 @@ public class PaintingProduction: Production
             var index = Int.random(upperBound: self.colorPalette.count)
 
             let diameter = CGFloat(Int.random(lowerBound: 90, upperBound: 110))
-            let O = OSymbol(center: center, markWidth: self.brushDiameter, diameter: diameter)
+            let O = OSymbol(center: center, brushDiameter: self.brushDiameter, diameter: diameter)
             O.strokeColor = self.colorPalette[index]
             
             center = self.canvasSize.randomPoint()
             index = Int.random(upperBound: self.colorPalette.count)
             
-            let X = XSymbol(center: center, markWidth: self.brushDiameter, markLength: symbol.markLength)
+            let X = XSymbol(center: center, brushDiameter: self.brushDiameter, markLength: symbol.markLength)
             X.strokeColor = self.colorPalette[index]
             
             center = self.canvasSize.randomPoint()
             index = Int.random(upperBound: self.colorPalette.count)
             
-            let squiggle = SquiggleSymbol(center: center, markWidth: self.brushDiameter, markLength: symbol.markLength)
+            let squiggle = SquiggleSymbol(center: center, brushDiameter: self.brushDiameter, markLength: symbol.markLength)
             squiggle.strokeColor = self.colorPalette[index]
             squiggle.noise = 0.5
             
-            return [O, symbol, X, squiggle]
+            return [O, symbol, squiggle]
         }
         
+        // Replace O with a dab field, sometimes
         self.register(symbolType: OSymbol.self) { (symbol) -> [Symbol] in
 
             var symbols = [Symbol]()
             
             let random = CGFloat.randomZeroToOne()
-            if random < 0.35
+            if random < 0.5
             {
-                let columns = Int.random(lowerBound: 3, upperBound: 5)
-                let rows = Int.random(lowerBound: 2, upperBound: 4)
-
                 let index = Int.random(upperBound: self.colorPalette.count)
                 let color = self.colorPalette[index]
                 let rotation = CGFloat(Int.random(upperBound: 360))
                 
                 let markLength = CGFloat(Int.random(lowerBound: Int(1.5*self.brushDiameter), upperBound: Int(3*self.brushDiameter)))
 
-                let startPoint = self.canvasSize.randomPoint()
-                let dx: CGFloat = CGFloat(Int.random(lowerBound: Int(1.1*self.brushDiameter), upperBound: Int(2*self.brushDiameter)))
-                let dy: CGFloat = CGFloat(Int.random(lowerBound: Int(1.1*markLength), upperBound: Int(1.2*markLength)))
+                let dabField = DabFieldSymbol(center: self.canvasSize.randomPoint(), brushDiameter: self.brushDiameter, markLength: markLength)
+                dabField.strokeColor = color
+                dabField.rotation = rotation
                 
-                for row in (-rows / 2)...(rows / 2)
-                {
-                    for column in (-columns / 2)...(columns / 2)
-                    {
-                        let center = CGPointMake(startPoint.x + dx * CGFloat(column), startPoint.y + dy * CGFloat(row)).applyNoise(5)
-
-                        let dab = DabSymbol(center: center, markWidth: self.brushDiameter, markLength: markLength.applyNoise(10))
-                        dab.strokeColor = color
-                        dab.rotation = rotation
-                        
-                        symbols.append(dab)
-                    }
-                }
+                symbols.append(dabField)
+            }
+            else
+            {
+                symbols.append(symbol)
             }
             
             return symbols
         }
         
+        // Add a squiggle next to a squiggle
         self.register(symbolType: SquiggleSymbol.self) { (symbol) -> [Symbol] in
             
             let symbol = symbol as! SquiggleSymbol
 
-            let squiggle = SquiggleSymbol(center: symbol.center.applyNoise(40), markWidth: self.brushDiameter, markLength: symbol.markLength)
+            let squiggle = SquiggleSymbol(center: symbol.center.applyNoise(40), brushDiameter: self.brushDiameter, markLength: symbol.markLength)
             squiggle.strokeColor = symbol.strokeColor
             squiggle.noise = 0.5
+            squiggle.blendMode = .Difference
 
             return [symbol, squiggle]
         }

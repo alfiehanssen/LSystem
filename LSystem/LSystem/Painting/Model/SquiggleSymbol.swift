@@ -16,7 +16,7 @@ class SquiggleSymbol: DrawableSymbol
     {
         let path = UIBezierPath()
         
-        let segment = (self.markLength - self.markWidth) / 2.0
+        let segment = (self.markLength - self.brushDiameter) / 2.0
         
         let noiseMax = self.markLength
         let dNoise = self.noise * noiseMax
@@ -32,16 +32,16 @@ class SquiggleSymbol: DrawableSymbol
         controlPoint2 = self.center.offsetBy(dx: segment/2.0, dy: segment/2.0).applyNoise(dNoise)
         path.addCurveToPoint(point, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
 
-        path.lineWidth = self.markWidth
+        path.lineWidth = self.brushDiameter
         path.lineCapStyle = .Round
         
         return path
     }
     
-    init(center: CGPoint, markWidth: CGFloat, markLength: CGFloat)
+    init(center: CGPoint, brushDiameter: CGFloat, markLength: CGFloat)
     {
         self.markLength = markLength
         
-        super.init(center: center, markWidth: markWidth)
+        super.init(center: center, brushDiameter: brushDiameter)
     }
 }

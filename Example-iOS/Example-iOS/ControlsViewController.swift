@@ -57,7 +57,7 @@ class ControlsViewController: UIViewController
     {
         let canvasSize = self.productionView.frame.size
         let brushDiameter = CGFloat(self.brushDiameter)
-        let colorPalette = [UIColor.redColor(), UIColor.blueColor(), UIColor.yellowColor()]
+        let colorPalette = [UIColor.redColor(), UIColor.blueColor(), UIColor.yellowColor(), UIColor.whiteColor()]
         
         self.production = PaintingProduction(canvasSize: canvasSize, brushDiameter: brushDiameter, colorPalette: colorPalette)
     }

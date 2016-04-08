@@ -12,7 +12,7 @@ import UIKit
 public class DrawableSymbol: Symbol
 {
     let center: CGPoint
-    let markWidth: CGFloat
+    let brushDiameter: CGFloat
     
     var noise: CGFloat = 0
     var alpha: CGFloat = 1
@@ -29,9 +29,9 @@ public class DrawableSymbol: Symbol
         return UIBezierPath()
     }
     
-    init(center: CGPoint, markWidth: CGFloat)
+    init(center: CGPoint, brushDiameter: CGFloat)
     {
         self.center = center
-        self.markWidth = markWidth
+        self.brushDiameter = brushDiameter
     }
 }
