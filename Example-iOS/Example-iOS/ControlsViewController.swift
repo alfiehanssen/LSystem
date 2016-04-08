@@ -49,6 +49,9 @@ class ControlsViewController: UIViewController
         
         self.didChangeBrushDiameter(self.brushDiameterSlider)
         self.didChangeIterations(self.iterationsSlider)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ControlsViewController.didTapPainting))
+        self.productionView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     @IBAction func didChangeBrushDiameter(sender: UISlider)
@@ -81,6 +84,20 @@ class ControlsViewController: UIViewController
                 self.view.userInteractionEnabled = true
             })
         }
+    }
+    
+    func didTapPainting(sender: UITapGestureRecognizer)
+    {
+        let view = self.productionView
+        let scale = UIScreen.mainScreen().scale
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, scale)
+        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: false)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: [])
+        self.presentViewController(activityViewController, animated: true, completion: nil)
     }
 
     /*
