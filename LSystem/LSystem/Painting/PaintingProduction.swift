@@ -35,8 +35,6 @@ public class PaintingProduction: Production
     
     private static func axiom(canvasSize canvasSize: CGSize, brushDiameter: CGFloat, colorPalette: [UIColor]) -> [Symbol]
     {
-        // TODO: This doesn't look like it's starting in the center, should be random anyway
-        
         let center = canvasSize.randomPoint()
         let markWidth = brushDiameter
         let markLength: CGFloat = canvasSize.height / 3.0
@@ -73,7 +71,7 @@ public class PaintingProduction: Production
             squiggle.strokeColor = self.colorPalette[index]
             squiggle.noise = 0.5
             
-            return [O, X, squiggle]
+            return [O, symbol, X, squiggle]
         }
         
         self.register(symbolType: OSymbol.self) { (symbol) -> [Symbol] in
@@ -112,6 +110,17 @@ public class PaintingProduction: Production
             }
             
             return symbols
+        }
+        
+        self.register(symbolType: SquiggleSymbol.self) { (symbol) -> [Symbol] in
+            
+            let symbol = symbol as! SquiggleSymbol
+
+            let squiggle = SquiggleSymbol(center: symbol.center.applyNoise(40), markWidth: self.brushDiameter, markLength: symbol.markLength)
+            squiggle.strokeColor = symbol.strokeColor
+            squiggle.noise = 0.5
+
+            return [symbol, squiggle]
         }
     }
 }

@@ -64,4 +64,9 @@ public class Production
         
         self.symbols = newSymbols
     }
+    
+    public func reset()
+    {
+        self.symbols = self.axiom
+    }
 }

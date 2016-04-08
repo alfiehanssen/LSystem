@@ -14,11 +14,10 @@ class ControlsViewController: UIViewController
     @IBOutlet weak var brushDiameterLabel: UILabel!
     @IBOutlet weak var brushDiameterSlider: UISlider!
     @IBOutlet weak var iterationsLabel: UILabel!
-    @IBOutlet weak var iterationsSlider: UISlider!
-    @IBOutlet weak var paintButton: UIButton!
-    
     @IBOutlet weak var productionView: PaintingProductionView!
 
+    var production: PaintingProduction?
+    
     private var brushDiameter: Int
     {
         get
@@ -27,59 +26,74 @@ class ControlsViewController: UIViewController
         }
     }
 
-    private var iterations: Int
-    {
-        get
-        {
-            return Int(round(self.iterationsSlider.value))
-        }
-    }
-
+    // MARK: View Lifecycle
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
-        self.brushDiameterSlider.minimumValue = 10
-        self.brushDiameterSlider.maximumValue = 200
+        self.setupSliders()
+        self.setupTapGesture()
+    }
+    
+    // MARK: Setup
+    
+    private func setupSliders()
+    {
+        self.brushDiameterSlider.minimumValue = 1
+        self.brushDiameterSlider.maximumValue = 100
         self.brushDiameterSlider.value = self.brushDiameterSlider.minimumValue
         
-        self.iterationsSlider.minimumValue = 1
-        self.iterationsSlider.maximumValue = 10
-        self.iterationsSlider.value = self.iterationsSlider.minimumValue
-        
         self.didChangeBrushDiameter(self.brushDiameterSlider)
-        self.didChangeIterations(self.iterationsSlider)
-        
+    }
+    
+    private func setupTapGesture()
+    {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ControlsViewController.didTapPainting))
         self.productionView.addGestureRecognizer(tapGestureRecognizer)
     }
+    
+    private func setupProduction()
+    {
+        let canvasSize = self.productionView.frame.size
+        let brushDiameter = CGFloat(self.brushDiameter)
+        let colorPalette = [UIColor.redColor(), UIColor.blueColor(), UIColor.yellowColor()]
+        
+        self.production = PaintingProduction(canvasSize: canvasSize, brushDiameter: brushDiameter, colorPalette: colorPalette)
+    }
+    
+    // MARK: Actions
     
     @IBAction func didChangeBrushDiameter(sender: UISlider)
     {
         self.brushDiameterLabel.text = "\(self.brushDiameter)"
     }
 
-    @IBAction func didChangeIterations(sender: UISlider)
+    @IBAction func didTapClear(sender: UIButton)
     {
-        self.iterationsLabel.text = "\(self.iterations)"
+        self.production?.reset()
+        self.production = nil
+        
+        self.productionView.symbols = []
     }
-
+    
     @IBAction func didTapPaint(sender: UIButton)
     {
+        if self.production == nil
+        {
+            self.setupProduction()
+        }
+        
+        let production = self.production!
+
         self.view.userInteractionEnabled = false
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { 
 
-            let canvasSize = self.productionView.frame.size
-            let brushDiameter = CGFloat(self.brushDiameter)
-            let colorPalette = [UIColor.redColor(), UIColor.blueColor(), UIColor.yellowColor()]
-            
-            let production = PaintingProduction(canvasSize: canvasSize, brushDiameter: brushDiameter, colorPalette: colorPalette)
-            
-            production.expand(iterations: self.iterations)
+            production.expand()
         
             dispatch_async(dispatch_get_main_queue(), { 
-                self.productionView.symbols = production.symbols as? [DrawableSymbol]       
+                self.productionView.symbols = production.symbols as? [DrawableSymbol]
         
                 self.view.userInteractionEnabled = true
             })
