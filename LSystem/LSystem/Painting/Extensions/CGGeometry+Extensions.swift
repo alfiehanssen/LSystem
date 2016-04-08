@@ -32,6 +32,19 @@ public extension CGSize
 
 public extension CGPoint
 {
+    func applyNoise(noise: CGFloat) -> CGPoint
+    {
+        let noise = Int(noise)
+
+        let xSign = Int.randomSign()
+        let dx = CGFloat(xSign * Int.random(upperBound: noise))
+        
+        let ySign = Int.randomSign()
+        let dy = CGFloat(ySign * Int.random(upperBound: noise))
+
+        return self.offsetBy(dx: dx, dy: dy)
+    }
+    
     func offsetBy(dx dx: CGFloat, dy: CGFloat) -> CGPoint
     {
         let x = self.x + dx
@@ -43,6 +56,14 @@ public extension CGPoint
 
 public extension CGFloat
 {
+    func applyNoise(noise: Int) -> CGFloat // TODO: fix this wrt bounds
+    {
+        let sign = Int.randomSign()
+        let d = CGFloat(sign * Int.random(upperBound: noise))
+        
+        return self + d
+    }
+
     func radians() -> CGFloat
     {
         return self * CGFloat(M_PI) / 180.0
@@ -59,6 +80,11 @@ public extension Int
     static func random(upperBound upperBound: Int) -> Int
     {
         return Int.random(lowerBound: 0, upperBound: upperBound)
+    }
+
+    static func randomSign() -> Int
+    {
+        return (arc4random() % 2 == 1 ? 1 : -1)
     }
 
     static func random(lowerBound lowerBound: Int, upperBound: Int) -> Int

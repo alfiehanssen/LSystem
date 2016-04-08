@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import LSystem
 import CoreGraphics
 import UIKit
 
@@ -57,27 +56,29 @@ public class PaintingProduction: Production
             var center = self.canvasSize.randomPoint()
             var index = Int.random(upperBound: self.colorPalette.count)
 
-            let O = OSymbol(center: center, markWidth: self.brushDiameter, diameter: 100)
+            let diameter = CGFloat(Int.random(lowerBound: 90, upperBound: 110))
+            let O = OSymbol(center: center, markWidth: self.brushDiameter, diameter: diameter)
             O.strokeColor = self.colorPalette[index]
             
             center = self.canvasSize.randomPoint()
             index = Int.random(upperBound: self.colorPalette.count)
             
-            let X1 = XSymbol(center: center, markWidth: self.brushDiameter, markLength: symbol.markLength)
-            X1.strokeColor = self.colorPalette[index]
+            let X = XSymbol(center: center, markWidth: self.brushDiameter, markLength: symbol.markLength)
+            X.strokeColor = self.colorPalette[index]
             
             center = self.canvasSize.randomPoint()
             index = Int.random(upperBound: self.colorPalette.count)
             
-            let X2 = XSymbol(center: center, markWidth: self.brushDiameter, markLength: symbol.markLength)
-            X2.strokeColor = self.colorPalette[index]
+            let squiggle = SquiggleSymbol(center: center, markWidth: self.brushDiameter, markLength: symbol.markLength)
+            squiggle.strokeColor = self.colorPalette[index]
+            squiggle.noise = 0.5
             
-            return [O, X1, X2]
+            return [O, X, squiggle]
         }
         
         self.register(symbolType: OSymbol.self) { (symbol) -> [Symbol] in
 
-            var symbols = [symbol]
+            var symbols = [Symbol]()
             
             let random = CGFloat.randomZeroToOne()
             if random < 0.35
@@ -89,16 +90,19 @@ public class PaintingProduction: Production
                 let color = self.colorPalette[index]
                 let rotation = CGFloat(Int.random(upperBound: 360))
                 
+                let markLength = CGFloat(Int.random(lowerBound: Int(1.5*self.brushDiameter), upperBound: Int(3*self.brushDiameter)))
+
                 let startPoint = self.canvasSize.randomPoint()
-                let dx: CGFloat = 75
-                let dy: CGFloat = 150
+                let dx: CGFloat = CGFloat(Int.random(lowerBound: Int(1.1*self.brushDiameter), upperBound: Int(2*self.brushDiameter)))
+                let dy: CGFloat = CGFloat(Int.random(lowerBound: Int(1.1*markLength), upperBound: Int(1.2*markLength)))
                 
                 for row in (-rows / 2)...(rows / 2)
                 {
                     for column in (-columns / 2)...(columns / 2)
                     {
-                        let center = CGPointMake(startPoint.x + dx * CGFloat(column), startPoint.y + dy * CGFloat(row))
-                        let dab = DabSymbol(center: center, markWidth: self.brushDiameter, markLength: 125)
+                        let center = CGPointMake(startPoint.x + dx * CGFloat(column), startPoint.y + dy * CGFloat(row)).applyNoise(5)
+
+                        let dab = DabSymbol(center: center, markWidth: self.brushDiameter, markLength: markLength.applyNoise(10))
                         dab.strokeColor = color
                         dab.rotation = rotation
                         

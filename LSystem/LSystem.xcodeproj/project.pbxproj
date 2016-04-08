@@ -13,10 +13,14 @@
 		50A0D4941CB8045700F74213 /* Production.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D48C1CB8045700F74213 /* Production.swift */; };
 		50A0D4951CB8045700F74213 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D48D1CB8045700F74213 /* Symbol.swift */; };
 		50A0D4961CB8045700F74213 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D48E1CB8045700F74213 /* Transform.swift */; };
-		50A0D4971CB8045700F74213 /* CGGeometry+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4901CB8045700F74213 /* CGGeometry+Extensions.swift */; };
 		50A0D4981CB8045700F74213 /* PaintingProduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4911CB8045700F74213 /* PaintingProduction.swift */; };
-		50A0D4991CB8045700F74213 /* PaintingProductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4921CB8045700F74213 /* PaintingProductionView.swift */; };
-		50A0D49A1CB8045700F74213 /* PaintingSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4931CB8045700F74213 /* PaintingSymbols.swift */; };
+		50A0D4B31CB81B5000F74213 /* CGGeometry+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4AA1CB81B5000F74213 /* CGGeometry+Extensions.swift */; };
+		50A0D4B41CB81B5000F74213 /* DabSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4AC1CB81B5000F74213 /* DabSymbol.swift */; };
+		50A0D4B51CB81B5000F74213 /* DrawableSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4AD1CB81B5000F74213 /* DrawableSymbol.swift */; };
+		50A0D4B61CB81B5000F74213 /* OSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4AE1CB81B5000F74213 /* OSymbol.swift */; };
+		50A0D4B71CB81B5000F74213 /* SquiggleSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4AF1CB81B5000F74213 /* SquiggleSymbol.swift */; };
+		50A0D4B81CB81B5000F74213 /* XSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4B01CB81B5000F74213 /* XSymbol.swift */; };
+		50A0D4B91CB81B5000F74213 /* PaintingProductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0D4B21CB81B5000F74213 /* PaintingProductionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,10 +43,14 @@
 		50A0D48C1CB8045700F74213 /* Production.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Production.swift; sourceTree = "<group>"; };
 		50A0D48D1CB8045700F74213 /* Symbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
 		50A0D48E1CB8045700F74213 /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
-		50A0D4901CB8045700F74213 /* CGGeometry+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGGeometry+Extensions.swift"; sourceTree = "<group>"; };
 		50A0D4911CB8045700F74213 /* PaintingProduction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingProduction.swift; sourceTree = "<group>"; };
-		50A0D4921CB8045700F74213 /* PaintingProductionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingProductionView.swift; sourceTree = "<group>"; };
-		50A0D4931CB8045700F74213 /* PaintingSymbols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingSymbols.swift; sourceTree = "<group>"; };
+		50A0D4AA1CB81B5000F74213 /* CGGeometry+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGGeometry+Extensions.swift"; sourceTree = "<group>"; };
+		50A0D4AC1CB81B5000F74213 /* DabSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DabSymbol.swift; sourceTree = "<group>"; };
+		50A0D4AD1CB81B5000F74213 /* DrawableSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawableSymbol.swift; sourceTree = "<group>"; };
+		50A0D4AE1CB81B5000F74213 /* OSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSymbol.swift; sourceTree = "<group>"; };
+		50A0D4AF1CB81B5000F74213 /* SquiggleSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquiggleSymbol.swift; sourceTree = "<group>"; };
+		50A0D4B01CB81B5000F74213 /* XSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XSymbol.swift; sourceTree = "<group>"; };
+		50A0D4B21CB81B5000F74213 /* PaintingProductionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingProductionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,12 +123,40 @@
 		50A0D48F1CB8045700F74213 /* Painting */ = {
 			isa = PBXGroup;
 			children = (
-				50A0D4901CB8045700F74213 /* CGGeometry+Extensions.swift */,
 				50A0D4911CB8045700F74213 /* PaintingProduction.swift */,
-				50A0D4921CB8045700F74213 /* PaintingProductionView.swift */,
-				50A0D4931CB8045700F74213 /* PaintingSymbols.swift */,
+				50A0D4A91CB81B5000F74213 /* Extensions */,
+				50A0D4AB1CB81B5000F74213 /* Model */,
+				50A0D4B11CB81B5000F74213 /* UIKit */,
 			);
 			path = Painting;
+			sourceTree = "<group>";
+		};
+		50A0D4A91CB81B5000F74213 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				50A0D4AA1CB81B5000F74213 /* CGGeometry+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		50A0D4AB1CB81B5000F74213 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				50A0D4AF1CB81B5000F74213 /* SquiggleSymbol.swift */,
+				50A0D4AC1CB81B5000F74213 /* DabSymbol.swift */,
+				50A0D4AE1CB81B5000F74213 /* OSymbol.swift */,
+				50A0D4B01CB81B5000F74213 /* XSymbol.swift */,
+				50A0D4AD1CB81B5000F74213 /* DrawableSymbol.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		50A0D4B11CB81B5000F74213 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				50A0D4B21CB81B5000F74213 /* PaintingProductionView.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,13 +267,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50A0D4B71CB81B5000F74213 /* SquiggleSymbol.swift in Sources */,
 				50A0D4941CB8045700F74213 /* Production.swift in Sources */,
 				50A0D4961CB8045700F74213 /* Transform.swift in Sources */,
+				50A0D4B51CB81B5000F74213 /* DrawableSymbol.swift in Sources */,
+				50A0D4B81CB81B5000F74213 /* XSymbol.swift in Sources */,
 				50A0D4951CB8045700F74213 /* Symbol.swift in Sources */,
 				50A0D4981CB8045700F74213 /* PaintingProduction.swift in Sources */,
-				50A0D49A1CB8045700F74213 /* PaintingSymbols.swift in Sources */,
-				50A0D4971CB8045700F74213 /* CGGeometry+Extensions.swift in Sources */,
-				50A0D4991CB8045700F74213 /* PaintingProductionView.swift in Sources */,
+				50A0D4B61CB81B5000F74213 /* OSymbol.swift in Sources */,
+				50A0D4B91CB81B5000F74213 /* PaintingProductionView.swift in Sources */,
+				50A0D4B31CB81B5000F74213 /* CGGeometry+Extensions.swift in Sources */,
+				50A0D4B41CB81B5000F74213 /* DabSymbol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
