@@ -25,8 +25,6 @@ public class PaintingProductionView: UIView
         {
             return
         }
-
-        print(symbols)
                 
         for symbol in symbols
         {
