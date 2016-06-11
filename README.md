@@ -6,4 +6,10 @@ It is a rapid prototype assembled over the course of 3 days for the first ever "
 
 Here are a few paintings that the system generated:
 
+![alt tag](http://alfiehanssen.com/assets/paintings/p34.png)
+
+![alt tag](http://alfiehanssen.com/assets/paintings/p35.png)
+
+![alt tag](http://alfiehanssen.com/assets/paintings/p36.png)
+
 
