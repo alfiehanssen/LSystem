@@ -17,3 +17,22 @@ Here are a few paintings that the system generated:
 ![alt tag](http://alfiehanssen.com/assets/github/p36.png)
 
 
+## TODO
+
+- Refine the LSystem rules to more closely represent decisions one might make when manually creating an abstract painting.
+
+## Want to Contribute?
+
+Feel free to open a PR.
+
+## Found an Issue?
+
+Please file any and all issues found in this library to the git [issue tracker](https://github.com/alfiehanssen/LSystem/issues).
+
+## Questions?
+
+Tweet at me here: [@alfiehanssen](https://twitter.com/alfiehanssen).
+
+## License
+
+`LSystem` is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
